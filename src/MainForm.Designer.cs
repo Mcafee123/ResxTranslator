@@ -31,13 +31,14 @@ namespace ResxTranslator
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contextMenuStripLanguage = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteLanguageFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoTranslateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripCell = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.autoTranslateThisCellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectSourceColumnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -72,14 +73,21 @@ namespace ResxTranslator
             this.addLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoTranslateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.translateUsingBingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectSourceColumnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fillEmptyItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allFilledItemsToUppercaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportRowsToTranslateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cleanupRegisteredExtensionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripLanguage.SuspendLayout();
             this.contextMenuStripCell.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerResource)).BeginInit();
             this.splitContainerResource.Panel1.SuspendLayout();
             this.splitContainerResource.Panel2.SuspendLayout();
             this.splitContainerResource.SuspendLayout();
@@ -94,19 +102,19 @@ namespace ResxTranslator
             this.deleteLanguageFileToolStripMenuItem,
             this.autoTranslateToolStripMenuItem1});
             this.contextMenuStripLanguage.Name = "contextMenuStripLanguage";
-            this.contextMenuStripLanguage.Size = new System.Drawing.Size(182, 48);
+            this.contextMenuStripLanguage.Size = new System.Drawing.Size(173, 48);
             // 
             // deleteLanguageFileToolStripMenuItem
             // 
             this.deleteLanguageFileToolStripMenuItem.Name = "deleteLanguageFileToolStripMenuItem";
-            this.deleteLanguageFileToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.deleteLanguageFileToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.deleteLanguageFileToolStripMenuItem.Text = "Delete Language file";
             this.deleteLanguageFileToolStripMenuItem.Click += new System.EventHandler(this.deleteLanguageFileToolStripMenuItem_Click);
             // 
             // autoTranslateToolStripMenuItem1
             // 
             this.autoTranslateToolStripMenuItem1.Name = "autoTranslateToolStripMenuItem1";
-            this.autoTranslateToolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
+            this.autoTranslateToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
             this.autoTranslateToolStripMenuItem1.Text = "Auto translate";
             this.autoTranslateToolStripMenuItem1.Click += new System.EventHandler(this.autoTranslateToolStripMenuItem1_Click);
             // 
@@ -115,7 +123,7 @@ namespace ResxTranslator
             this.contextMenuStripCell.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.autoTranslateThisCellToolStripMenuItem});
             this.contextMenuStripCell.Name = "contextMenuStripLanguage";
-            this.contextMenuStripCell.Size = new System.Drawing.Size(192, 48);
+            this.contextMenuStripCell.Size = new System.Drawing.Size(182, 26);
             // 
             // autoTranslateThisCellToolStripMenuItem
             // 
@@ -123,10 +131,20 @@ namespace ResxTranslator
             this.selectSourceColumnToolStripMenuItem,
             this.noLanguageToolStripMenuItem});
             this.autoTranslateThisCellToolStripMenuItem.Name = "autoTranslateThisCellToolStripMenuItem";
-            this.autoTranslateThisCellToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.autoTranslateThisCellToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.autoTranslateThisCellToolStripMenuItem.Text = "Auto translate this cell";
             this.autoTranslateThisCellToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.autoTranslateThisCellToolStripMenuItem_DropDownItemClicked);
             this.autoTranslateThisCellToolStripMenuItem.Click += new System.EventHandler(this.autoTranslateThisCellToolStripMenuItem_Click);
+            // 
+            // selectSourceColumnToolStripMenuItem
+            // 
+            this.selectSourceColumnToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.selectSourceColumnToolStripMenuItem.Enabled = false;
+            this.selectSourceColumnToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectSourceColumnToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.selectSourceColumnToolStripMenuItem.Name = "selectSourceColumnToolStripMenuItem";
+            this.selectSourceColumnToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.selectSourceColumnToolStripMenuItem.Text = "Select Source Column";
             // 
             // noLanguageToolStripMenuItem
             // 
@@ -134,7 +152,7 @@ namespace ResxTranslator
             this.noLanguageToolStripMenuItem.CheckOnClick = true;
             this.noLanguageToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.noLanguageToolStripMenuItem.Name = "noLanguageToolStripMenuItem";
-            this.noLanguageToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.noLanguageToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.noLanguageToolStripMenuItem.Tag = "NoLanguageValue";
             this.noLanguageToolStripMenuItem.Text = "Non-translated column";
             // 
@@ -144,10 +162,10 @@ namespace ResxTranslator
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1,
             this.toolStripStatusLabelCurrentItem});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 511);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 875);
             this.statusStrip1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(946, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1359, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -175,7 +193,7 @@ namespace ResxTranslator
             this.panelMain.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
             this.panelMain.Name = "panelMain";
             this.panelMain.Padding = new System.Windows.Forms.Padding(0, 24, 0, 3);
-            this.panelMain.Size = new System.Drawing.Size(946, 511);
+            this.panelMain.Size = new System.Drawing.Size(1359, 875);
             this.panelMain.TabIndex = 4;
             // 
             // splitContainerMain
@@ -191,8 +209,8 @@ namespace ResxTranslator
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.splitContainerResource);
-            this.splitContainerMain.Size = new System.Drawing.Size(946, 484);
-            this.splitContainerMain.SplitterDistance = 246;
+            this.splitContainerMain.Size = new System.Drawing.Size(1359, 848);
+            this.splitContainerMain.SplitterDistance = 461;
             this.splitContainerMain.TabIndex = 3;
             // 
             // treeViewResx
@@ -201,7 +219,7 @@ namespace ResxTranslator
             this.treeViewResx.HideSelection = false;
             this.treeViewResx.Location = new System.Drawing.Point(0, 0);
             this.treeViewResx.Name = "treeViewResx";
-            this.treeViewResx.Size = new System.Drawing.Size(246, 484);
+            this.treeViewResx.Size = new System.Drawing.Size(461, 848);
             this.treeViewResx.TabIndex = 0;
             this.treeViewResx.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewResx_AfterSelect);
             this.treeViewResx.DoubleClick += new System.EventHandler(this.treeViewResx_DoubleClick);
@@ -221,8 +239,8 @@ namespace ResxTranslator
             // 
             this.splitContainerResource.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainerResource.Panel2.Controls.Add(this.panelTitle);
-            this.splitContainerResource.Size = new System.Drawing.Size(696, 484);
-            this.splitContainerResource.SplitterDistance = 51;
+            this.splitContainerResource.Size = new System.Drawing.Size(894, 848);
+            this.splitContainerResource.SplitterDistance = 89;
             this.splitContainerResource.TabIndex = 2;
             // 
             // checkedListBoxLanguages
@@ -234,7 +252,7 @@ namespace ResxTranslator
             this.checkedListBoxLanguages.Location = new System.Drawing.Point(0, 0);
             this.checkedListBoxLanguages.MultiColumn = true;
             this.checkedListBoxLanguages.Name = "checkedListBoxLanguages";
-            this.checkedListBoxLanguages.Size = new System.Drawing.Size(696, 51);
+            this.checkedListBoxLanguages.Size = new System.Drawing.Size(894, 89);
             this.checkedListBoxLanguages.TabIndex = 0;
             this.checkedListBoxLanguages.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxLanguages_ItemCheck);
             this.checkedListBoxLanguages.MouseDown += new System.Windows.Forms.MouseEventHandler(this.checkedListBoxLanguages_MouseDown);
@@ -246,25 +264,25 @@ namespace ResxTranslator
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 35);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Size = new System.Drawing.Size(696, 394);
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Size = new System.Drawing.Size(894, 720);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContextMenuStripNeeded += new System.Windows.Forms.DataGridViewCellContextMenuStripNeededEventHandler(this.dataGridView1_CellContextMenuStripNeeded);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -285,7 +303,7 @@ namespace ResxTranslator
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(696, 35);
+            this.panelTitle.Size = new System.Drawing.Size(894, 35);
             this.panelTitle.TabIndex = 2;
             // 
             // labelTitle
@@ -295,7 +313,7 @@ namespace ResxTranslator
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(4, 4);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(689, 28);
+            this.labelTitle.Size = new System.Drawing.Size(887, 28);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "{Title}";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -308,10 +326,12 @@ namespace ResxTranslator
             this.settingsToolStripMenuItem,
             this.keysToolStripMenuItem,
             this.addLanguageToolStripMenuItem,
-            this.autoTranslateToolStripMenuItem});
+            this.autoTranslateToolStripMenuItem,
+            this.autoToolStripMenuItem,
+            this.exportToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(946, 24);
+            this.menuStripMain.Size = new System.Drawing.Size(1359, 24);
             this.menuStripMain.TabIndex = 5;
             this.menuStripMain.Text = "menuStrip1";
             // 
@@ -327,14 +347,14 @@ namespace ResxTranslator
             this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -342,45 +362,45 @@ namespace ResxTranslator
             // 
             this.saveAllModifiedToolStripMenuItem.Name = "saveAllModifiedToolStripMenuItem";
             this.saveAllModifiedToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveAllModifiedToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.saveAllModifiedToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.saveAllModifiedToolStripMenuItem.Text = "&Save all modified";
             this.saveAllModifiedToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(189, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.saveToolStripMenuItem.Text = "Save current resource";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveCurrentToolStripMenuItem_Click);
             // 
             // revertCurrentFileToolStripMenuItem
             // 
             this.revertCurrentFileToolStripMenuItem.Name = "revertCurrentFileToolStripMenuItem";
-            this.revertCurrentFileToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.revertCurrentFileToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.revertCurrentFileToolStripMenuItem.Text = "Revert current resource";
             this.revertCurrentFileToolStripMenuItem.Click += new System.EventHandler(this.revertCurrentToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.closeToolStripMenuItem.Text = "&Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(201, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(189, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -389,7 +409,7 @@ namespace ResxTranslator
             this.findToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.findToolStripMenuItem1});
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.findToolStripMenuItem.Text = "Find";
             // 
             // findToolStripMenuItem1
@@ -397,7 +417,7 @@ namespace ResxTranslator
             this.findToolStripMenuItem1.Name = "findToolStripMenuItem1";
             this.findToolStripMenuItem1.ShortcutKeyDisplayString = "Ctrl+F";
             this.findToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.findToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.findToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.findToolStripMenuItem1.Text = "&Find";
             this.findToolStripMenuItem1.Click += new System.EventHandler(this.findToolStripMenuItem1_Click);
             // 
@@ -407,20 +427,20 @@ namespace ResxTranslator
             this.hideNontranslatedToolStripMenuItem,
             this.setBingAppIdToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // hideNontranslatedToolStripMenuItem
             // 
             this.hideNontranslatedToolStripMenuItem.Name = "hideNontranslatedToolStripMenuItem";
-            this.hideNontranslatedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hideNontranslatedToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.hideNontranslatedToolStripMenuItem.Text = "Hide non-translated";
             this.hideNontranslatedToolStripMenuItem.Click += new System.EventHandler(this.hideNontranslatedToolStripMenuItem_Click);
             // 
             // setBingAppIdToolStripMenuItem
             // 
             this.setBingAppIdToolStripMenuItem.Name = "setBingAppIdToolStripMenuItem";
-            this.setBingAppIdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.setBingAppIdToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.setBingAppIdToolStripMenuItem.Text = "Set Bing Parameters";
             this.setBingAppIdToolStripMenuItem.Click += new System.EventHandler(this.setBingAppIdToolStripMenuItem_Click);
             // 
@@ -430,27 +450,27 @@ namespace ResxTranslator
             this.addNewKeyToolStripMenuItem,
             this.deleteKeyToolStripMenuItem});
             this.keysToolStripMenuItem.Name = "keysToolStripMenuItem";
-            this.keysToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.keysToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.keysToolStripMenuItem.Text = "Keys";
             // 
             // addNewKeyToolStripMenuItem
             // 
             this.addNewKeyToolStripMenuItem.Name = "addNewKeyToolStripMenuItem";
-            this.addNewKeyToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.addNewKeyToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.addNewKeyToolStripMenuItem.Text = "Add New Key";
             this.addNewKeyToolStripMenuItem.Click += new System.EventHandler(this.addNewKeyToolStripMenuItem_Click);
             // 
             // deleteKeyToolStripMenuItem
             // 
             this.deleteKeyToolStripMenuItem.Name = "deleteKeyToolStripMenuItem";
-            this.deleteKeyToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.deleteKeyToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.deleteKeyToolStripMenuItem.Text = "Delete Key";
             this.deleteKeyToolStripMenuItem.Click += new System.EventHandler(this.deleteKeyToolStripMenuItem_Click);
             // 
             // addLanguageToolStripMenuItem
             // 
             this.addLanguageToolStripMenuItem.Name = "addLanguageToolStripMenuItem";
-            this.addLanguageToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.addLanguageToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.addLanguageToolStripMenuItem.Text = "Add Language";
             this.addLanguageToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.addLanguageToolStripMenuItem_DropDownItemClicked);
             // 
@@ -459,31 +479,67 @@ namespace ResxTranslator
             this.autoTranslateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.translateUsingBingToolStripMenuItem});
             this.autoTranslateToolStripMenuItem.Name = "autoTranslateToolStripMenuItem";
-            this.autoTranslateToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.autoTranslateToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.autoTranslateToolStripMenuItem.Text = "Auto Translate";
             // 
             // translateUsingBingToolStripMenuItem
             // 
             this.translateUsingBingToolStripMenuItem.Name = "translateUsingBingToolStripMenuItem";
-            this.translateUsingBingToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.translateUsingBingToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.translateUsingBingToolStripMenuItem.Text = "Translate using Bing";
             this.translateUsingBingToolStripMenuItem.Click += new System.EventHandler(this.translateUsingBingToolStripMenuItem_Click);
             // 
-            // selectSourceColumnToolStripMenuItem
+            // autoToolStripMenuItem
             // 
-            this.selectSourceColumnToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.selectSourceColumnToolStripMenuItem.Enabled = false;
-            this.selectSourceColumnToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectSourceColumnToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.selectSourceColumnToolStripMenuItem.Name = "selectSourceColumnToolStripMenuItem";
-            this.selectSourceColumnToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.selectSourceColumnToolStripMenuItem.Text = "Select Source Column";
+            this.autoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillEmptyItemsToolStripMenuItem,
+            this.allFilledItemsToUppercaseToolStripMenuItem,
+            this.cleanupRegisteredExtensionsToolStripMenuItem});
+            this.autoToolStripMenuItem.Name = "autoToolStripMenuItem";
+            this.autoToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.autoToolStripMenuItem.Text = "Auto";
+            // 
+            // fillEmptyItemsToolStripMenuItem
+            // 
+            this.fillEmptyItemsToolStripMenuItem.Name = "fillEmptyItemsToolStripMenuItem";
+            this.fillEmptyItemsToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.fillEmptyItemsToolStripMenuItem.Text = "Fill empty items";
+            this.fillEmptyItemsToolStripMenuItem.Click += new System.EventHandler(this.fillEmptyItemsToolStripMenuItem_Click);
+            // 
+            // allFilledItemsToUppercaseToolStripMenuItem
+            // 
+            this.allFilledItemsToUppercaseToolStripMenuItem.Name = "allFilledItemsToUppercaseToolStripMenuItem";
+            this.allFilledItemsToUppercaseToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.allFilledItemsToUppercaseToolStripMenuItem.Text = "All filled items to Uppercase";
+            this.allFilledItemsToUppercaseToolStripMenuItem.Click += new System.EventHandler(this.allFilledItemsToUppercaseToolStripMenuItem_Click);
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportRowsToTranslateToolStripMenuItem});
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.exportToolStripMenuItem.Text = "Export";
+            // 
+            // exportRowsToTranslateToolStripMenuItem
+            // 
+            this.exportRowsToTranslateToolStripMenuItem.Name = "exportRowsToTranslateToolStripMenuItem";
+            this.exportRowsToTranslateToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.exportRowsToTranslateToolStripMenuItem.Text = "Export Rows to translate";
+            this.exportRowsToTranslateToolStripMenuItem.Click += new System.EventHandler(this.exportRowsToTranslateToolStripMenuItem_Click);
+            // 
+            // cleanupRegisteredExtensionsToolStripMenuItem
+            // 
+            this.cleanupRegisteredExtensionsToolStripMenuItem.Name = "cleanupRegisteredExtensionsToolStripMenuItem";
+            this.cleanupRegisteredExtensionsToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.cleanupRegisteredExtensionsToolStripMenuItem.Text = "Cleanup registered Extensions";
+            this.cleanupRegisteredExtensionsToolStripMenuItem.Click += new System.EventHandler(this.cleanupRegisteredExtensionsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 533);
+            this.ClientSize = new System.Drawing.Size(1359, 897);
             this.Controls.Add(this.menuStripMain);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.statusStrip1);
@@ -499,9 +555,11 @@ namespace ResxTranslator
             this.panelMain.ResumeLayout(false);
             this.splitContainerMain.Panel1.ResumeLayout(false);
             this.splitContainerMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
             this.splitContainerResource.Panel1.ResumeLayout(false);
             this.splitContainerResource.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerResource)).EndInit();
             this.splitContainerResource.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelTitle.ResumeLayout(false);
@@ -554,6 +612,12 @@ namespace ResxTranslator
         private ToolStripStatusLabel toolStripStatusLabelCurrentItem;
         private ToolStripMenuItem noLanguageToolStripMenuItem;
         private ToolStripMenuItem selectSourceColumnToolStripMenuItem;
+        private ToolStripMenuItem autoToolStripMenuItem;
+        private ToolStripMenuItem fillEmptyItemsToolStripMenuItem;
+        private ToolStripMenuItem allFilledItemsToUppercaseToolStripMenuItem;
+        private ToolStripMenuItem exportToolStripMenuItem;
+        private ToolStripMenuItem exportRowsToTranslateToolStripMenuItem;
+        private ToolStripMenuItem cleanupRegisteredExtensionsToolStripMenuItem;
 	}
 }
 

@@ -82,6 +82,5 @@ namespace Hauksoft.ResxTranslator
         {
             ActiveProject = null;
         }
-
     }
 }

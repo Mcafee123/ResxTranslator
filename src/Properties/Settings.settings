@@ -17,5 +17,11 @@
     <Setting Name="PreferredSourceLanguage" Type="System.String" Scope="User">
       <Value Profile="(Default)">en</Value>
     </Setting>
+    <Setting Name="ignoreWhenAllTheSame" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&amp;OK,OK,0,0.00</Value>
+    </Setting>
+    <Setting Name="ignoreByKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ReportFooter</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -62,7 +62,6 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -90,6 +89,8 @@
     </Compile>
     <Compile Include="BingTranslator.cs" />
     <Compile Include="Common.cs" />
+    <Compile Include="ResourceCell.cs" />
+    <Compile Include="ResourceRow.cs" />
     <Compile Include="FindDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,7 +121,9 @@
     <EmbeddedResource Include="ZoomWindow.resx">
       <DependentUpon>ZoomWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -201,8 +204,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>COPY $(TargetDir)\ResxTranslator.exe $(SolutionDir)..\bin\
-COPY $(TargetDir)\ResxTranslator.exe.config $(SolutionDir)..\bin\
+    <PostBuildEvent>REM COPY $(TargetDir)\ResxTranslator.exe $(SolutionDir)..\bin\
+REM COPY $(TargetDir)\ResxTranslator.exe.config $(SolutionDir)..\bin\
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
