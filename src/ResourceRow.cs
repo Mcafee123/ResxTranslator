@@ -12,7 +12,7 @@ namespace ResxTranslator
         public string ResourcefileName { get; set; }
         public string Key { get; set; }
         public string NoLanguageText { get; set; }
-        private List<ResourceCell> Translations { get; set; }
+        private List<ResourceCell> TranslationList { get; set; }
 
         static ResourceRow()
         {
@@ -25,18 +25,23 @@ namespace ResxTranslator
             ResourcefileName = resourcefileName;
             Key = key;
             NoLanguageText = noLanguageText;
-            Translations = new List<ResourceCell>();
+            TranslationList = new List<ResourceCell>();
         }
 
         public void AddTranslation(string ciShort, string translatedText)
         {
-            Translations.Add(new ResourceCell(ciShort, translatedText));
+            TranslationList.Add(new ResourceCell(ciShort, translatedText));
         }
+
+        public IEnumerable<ResourceCell> Translations
+        {
+            get { return TranslationList; }
+        } 
 
         public override string ToString()
         {
             var strg = String.Format(FormatString, Key, GetTextCheckLinebreaks(NoLanguageText));
-            strg = Translations.Aggregate(strg, (current, translation) => current + (";" + GetTextCheckLinebreaks(translation.Value)));
+            strg = TranslationList.Aggregate(strg, (current, translation) => current + (";" + GetTextCheckLinebreaks(translation.Value)));
             return strg + ";" + AssemblyName + ";" + ResourcefileName;
         }
 
@@ -51,12 +56,32 @@ namespace ResxTranslator
 
         public bool HasOpenTranslations()
         {
-            return Translations.Any(t => t.MustBeTranslated());
+            return TranslationList.Any(t => t.MustBeTranslated());
         }
 
         public static string GetHeaderNames()
         {
             return "Key;Deutsch;Französisch;Italienisch;AssemblyName;ResourcefileName";
+        }
+
+        public static ResourceRow Parse(string csvLine, char separator)
+        {
+            var cells = csvLine.Split(separator);
+            var key = cells[0];
+            var noLang = cells[1];
+            var assemblyName = cells[cells.Length - 2];
+            var resourceFileName = cells[cells.Length - 1];
+            var row = new ResourceRow(assemblyName, resourceFileName, key,  noLang);
+
+            row.AddTranslation("fr", cells[2]);
+            row.AddTranslation("it", cells[3]);
+
+            return row;
+        }
+
+        public static ResourceRow Parse(string csvLine)
+        {
+            return Parse(csvLine, ';');
         }
     }
 }

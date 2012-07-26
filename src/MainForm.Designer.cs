@@ -76,9 +76,10 @@ namespace ResxTranslator
             this.autoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fillEmptyItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allFilledItemsToUppercaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cleanupRegisteredExtensionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportRowsToTranslateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cleanupRegisteredExtensionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importTranslatedRowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripLanguage.SuspendLayout();
             this.contextMenuStripCell.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -513,13 +514,21 @@ namespace ResxTranslator
             this.allFilledItemsToUppercaseToolStripMenuItem.Text = "All filled items to Uppercase";
             this.allFilledItemsToUppercaseToolStripMenuItem.Click += new System.EventHandler(this.allFilledItemsToUppercaseToolStripMenuItem_Click);
             // 
+            // cleanupRegisteredExtensionsToolStripMenuItem
+            // 
+            this.cleanupRegisteredExtensionsToolStripMenuItem.Name = "cleanupRegisteredExtensionsToolStripMenuItem";
+            this.cleanupRegisteredExtensionsToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.cleanupRegisteredExtensionsToolStripMenuItem.Text = "Cleanup registered Extensions";
+            this.cleanupRegisteredExtensionsToolStripMenuItem.Click += new System.EventHandler(this.cleanupRegisteredExtensionsToolStripMenuItem_Click);
+            // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportRowsToTranslateToolStripMenuItem});
+            this.exportRowsToTranslateToolStripMenuItem,
+            this.importTranslatedRowsToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-            this.exportToolStripMenuItem.Text = "Export";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.exportToolStripMenuItem.Text = "Export / Import";
             // 
             // exportRowsToTranslateToolStripMenuItem
             // 
@@ -528,12 +537,12 @@ namespace ResxTranslator
             this.exportRowsToTranslateToolStripMenuItem.Text = "Export Rows to translate";
             this.exportRowsToTranslateToolStripMenuItem.Click += new System.EventHandler(this.exportRowsToTranslateToolStripMenuItem_Click);
             // 
-            // cleanupRegisteredExtensionsToolStripMenuItem
+            // importTranslatedRowsToolStripMenuItem
             // 
-            this.cleanupRegisteredExtensionsToolStripMenuItem.Name = "cleanupRegisteredExtensionsToolStripMenuItem";
-            this.cleanupRegisteredExtensionsToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.cleanupRegisteredExtensionsToolStripMenuItem.Text = "Cleanup registered Extensions";
-            this.cleanupRegisteredExtensionsToolStripMenuItem.Click += new System.EventHandler(this.cleanupRegisteredExtensionsToolStripMenuItem_Click);
+            this.importTranslatedRowsToolStripMenuItem.Name = "importTranslatedRowsToolStripMenuItem";
+            this.importTranslatedRowsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.importTranslatedRowsToolStripMenuItem.Text = "Import translated Rows";
+            this.importTranslatedRowsToolStripMenuItem.Click += new System.EventHandler(this.importTranslatedRowsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -618,6 +627,7 @@ namespace ResxTranslator
         private ToolStripMenuItem exportToolStripMenuItem;
         private ToolStripMenuItem exportRowsToTranslateToolStripMenuItem;
         private ToolStripMenuItem cleanupRegisteredExtensionsToolStripMenuItem;
+        private ToolStripMenuItem importTranslatedRowsToolStripMenuItem;
 	}
 }
 

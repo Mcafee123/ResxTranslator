@@ -1244,7 +1244,8 @@ namespace ResxTranslator
                             }
                             if (row.HasOpenTranslations())
                             {
-                                rows.Add(dr["Key"] + "_" + resource.Id, row.ToString());
+                                var key = CreateTranslationKey(dr, resource);
+                                rows.Add(key, row.ToString());
                             }
                         }
                     }
@@ -1276,9 +1277,13 @@ namespace ResxTranslator
                     MessageBox.Show(String.Format("Error: {0}", ex.GetBaseException().Message));
                 }
             }
-
         }
 
+        private string CreateTranslationKey(DataRow dr, ResourceHolder resource)
+        {
+            return dr["Key"] + "_" + resource.Id;
+        }
+        
         private void cleanupRegisteredExtensionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (var resource in this.Resources.Values)
@@ -1296,6 +1301,65 @@ namespace ResxTranslator
                             }
                         }
                     }
+                }
+            }
+        }
+
+        private void importTranslatedRowsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fileDialog = new OpenFileDialog() {Filter = "Comma separated values (*.csv)|*.csv" };
+            if (Directory.Exists(_exportPath))
+            {
+                fileDialog.InitialDirectory = _exportPath;
+            }
+            var result = fileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    // read all translations
+                    var translations = new List<ResourceRow>();
+                    using (var ts = new FileStream(fileDialog.FileName, FileMode.Open, FileAccess.Read))
+                    {
+                        using (var sr = new StreamReader(ts, Encoding.GetEncoding(1252)))
+                        {
+                            var headers = ResourceRow.GetHeaderNames();
+                            while (!sr.EndOfStream)
+                            {
+                                var line = sr.ReadLine();
+                                if (!String.IsNullOrEmpty(line) && line != headers)
+                                {
+                                    var res = ResourceRow.Parse(line);
+                                    translations.Add(res);
+                                }
+                            }
+                        }
+                    }
+
+                    // loop over all resources and look if there is a translation in memory
+                    foreach (var resource in this.Resources.Values)
+                    {
+                        var res = resource;
+                        // export
+                        foreach (DataRow dr in res.StringsTable.Rows)
+                        {
+                            var key = dr["Key"].ToString();
+                            var resourceRows = translations.Where(t => t.Key == key && t.ResourcefileName == res.Filename);
+                            var resourceRow = resourceRows.FirstOrDefault();
+                            if (resourceRow != null)
+                            {
+                                foreach (var lang in resourceRow.Translations)
+                                {
+                                    dr[lang.Culture] = lang.RemoveLanguageSuffixIfExists().Value;
+                                }
+                            }
+                        }
+                    }
+                    _exportPath = fileDialog.InitialDirectory;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(String.Format("Error: {0}", ex.GetBaseException().Message));
                 }
             }
         }

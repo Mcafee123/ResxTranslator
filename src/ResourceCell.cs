@@ -18,5 +18,11 @@ namespace ResxTranslator
         {
             return Value.IndexOf(String.Format("({0})", Culture.ToUpper()), System.StringComparison.Ordinal) > -1;
         }
+
+        public ResourceCell RemoveLanguageSuffixIfExists()
+        {
+            Value = Value.Replace(String.Format("({0})", Culture.ToUpper()), "").Trim();
+            return this;
+        }
     }
 }
